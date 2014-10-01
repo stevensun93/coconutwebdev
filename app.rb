@@ -10,10 +10,19 @@ Bundler.require
 # define a route for the root of the site
 get '/' do
   # render the views/index.erb template
-
 	file_contents = File.read("todo.txt")
-	@lyrics = file_contents.split("\n")
-	erb :bottles
+	@list = file_contents.split("\n")
+	erb :todolist
+end
+
+post '/' do
+
+  File.open("todo.txt", "a") do |file|
+  file.puts "#{params[:task]} - #{params[:date]}"
+  end
+
+	redirect "/"
+
 end
 
 get "/hi" do
@@ -26,7 +35,7 @@ get '/99bottles' do
   # Here we specify a Range from 1 to 99, convert it into an Array, reverse the Array order,
   # then map a block to the Array that converts each Integer into a String using ruby string
   # interpolation (the #{} stuff)
-  @lyrics = (1..99).to_a.reverse.map {|i| "#{i} bottles of beer on the wall, #{i} bottles of beer. Take one down, pass it around, #{i-1} bottles of beer on the wall."}
+  @list = (1..99).to_a.reverse.map {|i| "#{i} bottles of beer on the wall, #{i} bottles of beer. Take one down, pass it around, #{i-1} bottles of beer on the wall."}
   # renter the views/bottles.erb template
-  erb :bottles
+  erb :todolist
 end
