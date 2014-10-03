@@ -1,0 +1,22 @@
+body {
+  text-align: center;
+  font-family: Comic Sans MS, #333;
+  font-size: 140%;
+  background: url(/background.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+h1 {
+  font-family: "Altamonte NF";
+  font-size: 400%;
+}
+
+.wrapper {
+  width: 70%;
+  margin: 32px auto;
+  background: #2980b9;
+  padding: 32px;
+  border: 16px solid red;
+}
