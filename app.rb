@@ -1,41 +1,25 @@
-# app.rb
-# this is a simple Sinatra example app
 
-# use bundler
 require 'rubygems'
 require 'bundler/setup'
-# load all of the gems in the gemfile
 Bundler.require
+require './models/TodoItem'
 
-# define a route for the root of the site
+ActiveRecord::Base.establish_connection(
+  :adapter  => 'sqlite3',
+  :database => 'db/development.db',
+  :encoding => 'utf8'
+)
+
 get '/' do
-  # render the views/index.erb template
-	file_contents = File.read("todo.txt")
-	@list = file_contents.split("\n")
+
+  @tasks = TodoItem.all
 	erb :todolist
+
 end
 
 post '/' do
 
-  File.open("todo.txt", "a") do |file|
-  file.puts "#{params[:task]} - #{params[:date]}"
-  end
-
+  item = TodoItem.create(due_date: params[:date], description: params[:task])
 	redirect "/"
 
-end
-
-get "/hi" do
-	erb :index
-end
-
-# define another route with some content that's then shown by the view
-get '/99bottles' do
-  # Ruby is fun because you can mix functional programming with imperative programming.
-  # Here we specify a Range from 1 to 99, convert it into an Array, reverse the Array order,
-  # then map a block to the Array that converts each Integer into a String using ruby string
-  # interpolation (the #{} stuff)
-  @list = (1..99).to_a.reverse.map {|i| "#{i} bottles of beer on the wall, #{i} bottles of beer. Take one down, pass it around, #{i-1} bottles of beer on the wall."}
-  # renter the views/bottles.erb template
-  erb :todolist
 end

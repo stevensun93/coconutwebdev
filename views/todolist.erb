@@ -1,10 +1,6 @@
-<p>
-<a href="/">&laquo; Back</a>
-</p>
-<% @list.each do |line| %>
-<p><%= line %></p>
+<% @tasks.each do |item| %>
+<p><%= item.description %> -- <%= item.due_date %></p>
 <% end %>
-
 <form action='/' method='POST'>
   <strong>New Task:</strong>
   <input type='text' name='task' placeholder='task content' />
