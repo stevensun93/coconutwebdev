@@ -23,3 +23,16 @@ post '/' do
 	redirect "/"
 
 end
+
+post '/delete' do
+
+  item = TodoItem.destroy(due_date: params[:date], description: params[:task])
+  redirect "/delete"
+
+end
+
+get '/test/:whatever' do
+  
+  return "you accessed: " + params[:whatever]
+
+end
