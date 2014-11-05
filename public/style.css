@@ -5,7 +5,7 @@ body {
   background: url(/background.gif);
   background-repeat: no-repeat;
   background-size: cover;
-  color: white;
+  color: #E68A00;
 }
 
 h1 {
@@ -16,7 +16,7 @@ h1 {
 .wrapper {
   width: 70%;
   margin: 32px auto;
-  background: #2980b9;
+  background: #CCFFFF;
   padding: 32px;
   border: 16px solid red;
 }
