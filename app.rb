@@ -19,13 +19,13 @@ get '/' do
 	erb :todolist
 end
 
-#TO create items
+#to create items
 post '/' do
   item = TodoItem.create(due_date: params[:date], description: params[:task])
 	redirect "/"
 end
 
-#To delete items
+#to delete items
 post '/delete/:id' do
     TodoItem.find(params[:id]).destroy
     redirect '/'
