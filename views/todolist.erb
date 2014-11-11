@@ -1,4 +1,5 @@
-<% @tasks.each do |item| %>
+<% @tasks.order(:due_date).each do |item| %>
+
 <div class="todoitem">
 <div class = "button">
   <%= item.description %> -- <%= item.due_date %>
