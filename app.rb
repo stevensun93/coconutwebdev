@@ -15,28 +15,18 @@ else
 end
 
 get '/' do
-
   @tasks = TodoItem.all
 	erb :todolist
-
 end
 
+#TO create items
 post '/' do
-
   item = TodoItem.create(due_date: params[:date], description: params[:task])
 	redirect "/"
-
 end
 
-# post '/delete' do
-#
-#   item = TodoItem.destroy(due_date: params[:date], description: params[:task])
-#   redirect "/delete"
-#
-# end
-
-# get '/test/:whatever' do
-#
-#   return "you accessed: " + params[:whatever]
-#
-# end
+#To delete items
+post '/delete/:id' do
+    TodoItem.find(params[:id]).destroy
+    redirect '/'
+end
