@@ -1,7 +1,7 @@
 <% @tasks.order(:due_date).each do |item| %>
 
 <div class="todoitem">
-<div class = "button">
+<div class = "button1">
   <%= item.description %> -- <%= item.due_date %>
   <form action='/delete/<%= item.id%>' method='POST'>
     <input type='submit' value='X'>
@@ -14,5 +14,7 @@
   <strong>New Task:</strong>
   <input type='text' name='task' placeholder='task content' />
   <input type='text' name='date' placeholder='due date' />
-  <input type='submit' value='Save'>
+  <div class = "button2">
+    <input type='submit' value='Save'>
+  </div>
 </form>

@@ -23,7 +23,7 @@ h1 {
   border: 16px solid red;
 }
 
-.button{
+.button1{
    display: left;
    border-top: 1px solid #96d1f8;
    background: #65a9d7;
@@ -51,4 +51,22 @@ h1 {
 form {
   display: inline-block;
 
+}
+
+.button2 {
+  background: #db0967;
+  background-image: -webkit-linear-gradient(top, #db0967, #2980b9);
+  background-image: -moz-linear-gradient(top, #db0967, #2980b9);
+  background-image: -ms-linear-gradient(top, #db0967, #2980b9);
+  background-image: -o-linear-gradient(top, #db0967, #2980b9);
+  background-image: linear-gradient(to bottom, #db0967, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  text-shadow: 0px 1px 3px #000f0a;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
 }
